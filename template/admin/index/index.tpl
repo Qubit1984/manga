@@ -22,7 +22,7 @@
 <body class="index">
 <!-- 顶部开始 -->
 <div class="container">
-    <div class="logo"><a>漫城CMS管理系统</a></div>
+    <div class="logo"><a>小说漫画系统</a></div>
     <div class="left_open">
         <a><i title="展开左侧栏" class="layui-icon">&#xe668;</i></a>
     </div>
@@ -107,10 +107,7 @@
         <div id="tab_show"></div>
     </div>
 </div>
-<div class="layui-footer layui-text">
-    <?=base64decode('Y29weXJpZ2h0IMKpIDIwMjAgPGEgaHJlZj0iaHR0cDovL3d3dy5tY2Ntcy5jbi8iIHRhcmdldD0iX2JsYW5rIj7mvKvln45DTVPns7vnu588L2E-IGFsbCByaWdodHMgcmVzZXJ2ZWQu')?>
-    <span class="pull-right">Version <?=Ver?></span>
-</div>
+
 <!-- 右侧主体结束 -->
 <!-- 中部结束 -->
 <script type="text/javascript">

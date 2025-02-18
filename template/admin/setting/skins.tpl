@@ -33,7 +33,6 @@
                 <ul class="layui-tab-title">
                     <li<?php if($tabid == 'pc') echo ' class="layui-this"';?>>电脑模版</li>
                     <li<?php if($tabid == 'wap') echo ' class="layui-this"';?>>手机模版</li>
-                    <li><a onclick="layer.load();" href="<?=links('skins','index')?>">模版中心</a></li>
                 </ul>
                 <div class="layui-tab-content">
                     <div class="layui-tab-item<?php if($tabid == 'pc') echo ' layui-show';?>">

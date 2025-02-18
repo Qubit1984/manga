@@ -152,25 +152,84 @@
 layui.use(['form','upload'], function(){
     var upload = layui.upload,
         form = layui.form;
+        
+    // 创建一个队列存储待上传的文件
+    var uploadQueue = [];
+    var isUploading = false;
+    
     upload.render({
         elem: '.uppic',
         url: '<?=links('ajax','upload',($id==0?$mid:$id))?>',
-        number: 100,
+        auto: false, // 不自动上传
         multiple: true,
         accept: 'file',
         acceptMime: 'image/*',
         exts: '<?=Annex_Ext?>',
-        done: function(res){
-            if(res.code == 0){
-                layer.msg(res.msg,{icon: 1});
-                var html='<li><input type="hidden" name="pic[]" value="'+res.pid+'"><img src="'+res.img+'"><span title="删除" class="p2" data-id="'+res.pid+'"><i class="layui-icon">&#xe640;</i></span></li>';
-                $('.layui-pic').append(html);
-                get_pic_px();
-            }else{
-                layer.msg(res.msg,{icon: 2});
+        choose: function(obj){ // 选择文件后的回调
+            var files = obj.pushFile();
+            // 将文件按名称排序
+            var sortedFiles = Object.values(files).sort((a, b) => {
+                return a.name.localeCompare(b.name, undefined, {numeric: true});
+            });
+            
+            // 清空上传队列
+            uploadQueue = [];
+            // 将排序后的文件加入队列
+            sortedFiles.forEach(file => {
+                uploadQueue.push({
+                    file: file,
+                    obj: obj
+                });
+            });
+            
+            // 开始上传队列
+            if(!isUploading) {
+                uploadNext();
             }
         }
     });
+    
+    // 上传队列中的下一个文件
+    function uploadNext() {
+        if(uploadQueue.length === 0) {
+            isUploading = false;
+            return;
+        }
+        
+        isUploading = true;
+        var item = uploadQueue.shift();
+        var formData = new FormData();
+        formData.append('file', item.file);
+        
+        $.ajax({
+            url: '<?=links('ajax','upload',($id==0?$mid:$id))?>',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(res){
+                if(res.code == 0){
+                    // 添加图片到列表
+                    var html='<li><input type="hidden" name="pic[]" value="'+res.pid+'">' + 
+                            '<img src="'+res.img+'">' +
+                            '<span title="删除" class="p2" data-id="'+res.pid+'">' +
+                            '<i class="layui-icon">&#xe640;</i></span></li>';
+                    $('.layui-pic').append(html);
+                    get_pic_px();
+                    
+                    // 继续上传下一个
+                    uploadNext();
+                }else{
+                    layer.msg(res.msg,{icon: 2});
+                    isUploading = false;
+                }
+            },
+            error: function(){
+                layer.msg('上传失败',{icon: 2});
+                isUploading = false;
+            }
+        });
+    }
     //上传图片
     $('.api-pic').click(function(){
         var url = $('#jxurl').val();

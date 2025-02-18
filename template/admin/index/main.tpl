@@ -102,7 +102,7 @@
 		                    <tbody>
 		                        <tr>
 		                            <th>系统名称</th>
-		                            <td>Mccms comic system</td>
+		                            <td>小说漫画系统</td>
 		                        </tr>
 		                        <tr>
 		                            <th>运行域名</th>
@@ -137,72 +137,23 @@
 		            </div>
 		        </div>
 		    </div>
-		    <div class="layui-row">
-		        <div class="layui-card">
-		            <div class="layui-card-header">开发团队</div>
-		            <div class="layui-card-body ">
-		                <table class="layui-table">
-		                	<colgroup>
-							    <col width="100">
-							    <col>
-							 </colgroup>
-		                    <tbody>
-		                        <tr>
-		                            <th>版权所有</th>
-		                            <td><a href="http://www.mccms.cn/" target="_blank">桂林崇胜网络科技有限公司</a></td>
-		                        </tr>
-		                        <tr>
-		                            <th>开发者</th>
-		                            <td>烟雨江南(2811358863@qq.com)</td></tr>
-		                    </tbody>
-		                </table>
-		            </div>
-		        </div>
+		    <div class="layui-row">	
     		</div>
     	</div>
     	<div class="layui-col-xs12 layui-col-md4" id="mccms_right">
 		    <div class="layui-row" style="background: #fff;">
-		        <div class="layui-card mccmsads">
-		            <div class="layui-card-header">广告赞助</div>
-		            <div class="layui-card-body layui-row">
-			        	<div class="layui-col-xs6 layui-col-sm4 layui-col-md6">
-							<p class="ads layui-bg-red">赞助位招租<br>QQ:157503886</p>
-			        	</div>
-			        	<div class="layui-col-xs6 layui-col-sm4 layui-col-md6">
-							<p class="ads layui-bg-blue">赞助位招租<br>QQ:157503886</p>
-			        	</div>
-			        	<div class="layui-col-xs6 layui-col-sm4 layui-col-md6">
-							<p class="ads layui-bg-orange">赞助位招租<br>QQ:157503886</p>
-			        	</div>
-			        	<div class="layui-col-xs6 layui-col-sm4 layui-col-md6">
-							<p class="ads layui-bg-green">赞助位招租<br>QQ:157503886</p>
-			        	</div>
-			        	<div class="layui-col-xs6 layui-col-sm4 layui-col-md6">
-							<p class="ads layui-bg-black">赞助位招租<br>QQ:157503886</p>
-			        	</div>
-			        	<div class="layui-col-xs6 layui-col-sm4 layui-col-md6">
-							<p class="ads layui-bg-red">赞助位招租<br>QQ:157503886</p>
-			        	</div>
-			        </div>
-			    </div>
 		    </div>
 		    <div class="layui-row">
 		        <div class="layui-card">
-		            <div class="layui-card-header">官方公告</div>
-		            <div class="layui-card-body mccmsgg">
+		            <div class="layui-card-header">系统公告</div>
 			        	<table class="layui-table" lay-skin="nob" lay-even lay-size="sm">
-							<colgroup>
-								<col>
-								<col width="70">
-							</colgroup>
 							<tbody>
 								<tr>
-									<td><a href="http://www.mccms.cn/" target="_blank">1.漫城CMS开源版2020.03.01正式发布</a></td>
-									<td>1个月前</td>
+									<td><a href="/" target="_blank">1.漫画小说系统+uniapp</a></td>
+									<td>最近</td>
 								</tr>
 							</tbody>
 						</table>
-					</div>
 				</div>
 	        </div>
 	    </div>

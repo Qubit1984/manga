@@ -37,6 +37,7 @@
                         <li lay-id="t3">热搜关键词</li>
                         <li lay-id="t4">用户协议</li>
                         <li lay-id="t5">隐私政策</li>
+                        <li lay-id="t6">APP配置</li>
                     </ul>
                     <div class="layui-tab-content">
                         <div class="layui-tab-item layui-show">
@@ -250,6 +251,37 @@
                                     </div>
                                 </div>
                                 <div class="layui-form-item w120">
+                                    <div class="layui-input-block">
+                                        <button class="layui-btn" lay-filter="*" lay-submit>
+                                            更新配置信息
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-tab-item">
+                            <div class="layui-form layui-text" style="max-width: 700px;padding-top: 25px;">
+                                <div class="layui-collapse" lay-accordion="">
+                                    <div class="layui-colla-item">
+                                        <h2 class="layui-colla-title" style="font-size:14px;">APP公告</h2>
+                                        <div class="layui-colla-content layui-show">
+                                            <div class="layui-form-item w120">
+                                                <label class="layui-form-label">开启通知:</label>
+                                                <div class="layui-input-inline" style="display: block;width: auto;float: none;">
+                                                    <input lay-filter="none" xs="no" type="radio" name="Kx_Notice_Mode" value="1" title="开启"<?php if($app['Kx_Notice_Mode'] == 1) echo ' checked';?>>
+                                                    <input lay-filter="none" xs="yes" type="radio" name="Kx_Notice_Mode" value="0" title="关闭"<?php if($app['Kx_Notice_Mode'] == 0) echo ' checked';?>>
+                                                </div>
+                                            </div>
+                                            <div class="layui-form-item w120">
+                                                <label class="layui-form-label">通知内容:</label>
+                                                <div class="layui-input-block">
+                                                    <textarea style="min-height:120px;" name="Kx_Notice" placeholder="APP弹窗通知内容,支持html" class="layui-textarea"><?=$app['Kx_Notice']?></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="layui-form-item w120" style="margin-top:10px;">
                                     <div class="layui-input-block">
                                         <button class="layui-btn" lay-filter="*" lay-submit>
                                             更新配置信息

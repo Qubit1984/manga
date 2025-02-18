@@ -22,7 +22,6 @@
         <hr class="hr15">
         <input value="登录" lay-submit lay-filter="login" style="width:100%;" type="submit">
     </form>
-    <div class="text"><p><a href="http://www.mccms.cn/" target="_blank">桂林崇胜网络科技有限公司研发</a></p></div>
 </div>
 <script src="<?=Web_Base_Path?>jquery/jquery.min.js"></script>
 <!--[if IE 8]>

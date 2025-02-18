@@ -192,17 +192,19 @@ class Ajax extends Mccms_Controller {
 
 	//上传图片
 	public function upload($id = 0){
-		$id = (int)$id;
-		$dir = sys_auth($this->input->get_post('dir',true),1);
-		$sy = $this->input->get_post('sy',true);
-		if(empty($dir)) $dir = 'comic';
-		if($sy!='no') $sy = 'yes';
-		$cof['upload_path'] = FCPATH.Annex_Dir.'/'.$dir.'/'.get_str_date(Annex_Path).'/';
-		mkdirss($cof['upload_path']); //创建文件夹
-		$cof['allowed_types'] = Annex_Ext;
-		$cof['file_name'] = date('YmdHis').rand(1111,9999);
-		$cof['max_size'] = Annex_Size;
-		$this->load->library('upload',$cof);
+    	$id = (int)$id;
+    	$dir = sys_auth($this->input->get_post('dir',true),1);
+    	$sy = $this->input->get_post('sy',true);
+    	if(empty($dir)) $dir = 'comic';
+    	if($sy!='no') $sy = 'yes';
+    	$cof['upload_path'] = FCPATH.Annex_Dir.'/'.$dir.'/'.get_str_date(Annex_Path).'/';
+    	mkdirss($cof['upload_path']); //创建文件夹
+    	$cof['allowed_types'] = Annex_Ext;
+    	// 使用原始文件名作为基础
+    	$original_name = $_FILES['file']['name'];
+    	$cof['file_name'] = date('YmdHis').'_'.preg_replace('/[^a-zA-Z0-9.]/', '', $original_name);
+    	$cof['max_size'] = Annex_Size;
+    	$this->load->library('upload',$cof);
 
 		if(!$this->upload->do_upload('file')){
 			$msg = $this->upload->display_errors();
@@ -211,8 +213,8 @@ class Ajax extends Mccms_Controller {
     		$pid = 0;
 			$arr = $this->upload->data();
 			$img_path_file = $arr['full_path'];
-            $res = checkPicHex($img_path_file);
-            if($res == 1) get_json('非法图片');
+            //$res = checkPicHex($img_path_file);
+            //if($res == 1) get_json('非法图片');
 			//水印
     		if($sy == 'yes') get_watermark($img_path_file);
     		//同步
